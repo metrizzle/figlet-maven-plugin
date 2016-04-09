@@ -1,18 +1,16 @@
 # jfiglet-maven-plugin
 Decorate your builds with [figlet](http://www.figlet.org/) ascii banners like
-- Based on the [jfiglet](https://lalyos.github.io/jfiglet/) java implementation from central
-- 
-
 ```
   _________ _______________          ______      _____ 
   ______  /____  ____/___(_)_______ ____  /_____ __  /_
   ___ _  / ___  /_    __  / __  __ `/__  / _  _ \_  __/
   / /_/ /   _  __/    _  /  _  /_/ / _  /  /  __// /_  
   \____/    /_/       /_/   _\__, /  /_/   \___/ \__/  
+  jflight-maven-plugin
 ```
 
 
-
+Based on the [jfiglet](https://lalyos.github.io/jfiglet/) java implementation from central
 ```
 <dependency>
 	<groupId>com.github.lalyos</groupId>
