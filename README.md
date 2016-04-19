@@ -34,6 +34,7 @@ Based on the [jfiglet](https://lalyos.github.io/jfiglet/) java implementation av
 
 ### Testing
 - http://takari.io/ Integrationtesting  
+- https://github.com/takari/takari-plugin-testing-project/blob/master/testproperties.md
 
 ## Links
 - http://www.mojohaus.org/development/guidelines.html
