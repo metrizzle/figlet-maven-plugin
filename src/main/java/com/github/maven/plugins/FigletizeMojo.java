@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.github.lalyos.jfiglet.FigletFont;
 
-@Execute(goal="figletize", phase=LifecyclePhase.VALIDATE)
+//@Execute(goal="figletize", phase=LifecyclePhase.VALIDATE)
 @Mojo(name = "figletize", requiresProject=true, threadSafe = true, defaultPhase = LifecyclePhase.VALIDATE, instantiationStrategy = InstantiationStrategy.SINGLETON)
 public class FigletizeMojo extends AbstractMojo {
 	
@@ -26,7 +26,7 @@ public class FigletizeMojo extends AbstractMojo {
     @Parameter( property = "executedProject" )
     private MavenProject executedProject;
 
-    @Parameter( property = "text", defaultValue="${executedProject.artifactId}" )
+    @Parameter( property = "text", defaultValue="${project.artifactId}" )
     private String text;
 	
 	@Override
@@ -41,10 +41,12 @@ public class FigletizeMojo extends AbstractMojo {
 
 	protected void executeInternal() throws Exception {
 		
+		if(text == null) {
+			text = "MAVEN";
+		}
 		
-		String text = executedProject.getArtifactId();
 		String asciiArt = FigletFont.convertOneLine(text);
-		logger.info(asciiArt);
+		logger.info("\n" + asciiArt);
 	}
 
 }

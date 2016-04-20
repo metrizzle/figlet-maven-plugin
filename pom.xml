@@ -30,8 +30,9 @@
 
 		<mojo.java.target>1.6</mojo.java.target>
 		<mavenFilteringVersion>3.0.0</mavenFilteringVersion>
-		<takariLifecycleVersion>1.11.11</takariLifecycleVersion><!-- matches the 
-			eclipse maven version only required for plugin build -->
+		<takariLifecycleVersion>1.11.11</takariLifecycleVersion>
+		
+		<!-- matches the  eclipse maven version only required for plugin build -->
 		<scmpublish.content>target/staging/${project.artifactId}</scmpublish.content>
 
 	</properties>

@@ -17,17 +17,24 @@ import io.takari.maven.testing.executor.junit.MavenJUnitTestRunner;
 @MavenVersions({"3.3.9"})//"{"3.2.1", "3.2.5"}"
 public class FigletizeIntegrationTest {
 
+	public static String expectedBanner=
+	" _                  _       ";
+//	"| |__    __ _  ___ (_)  ___  " + "\n" +
+//	"| '_ \\  / _` |/ __|| | / __|" + "\n" +
+//	"| |_) || (_| |\\__ \\| || (__ " + "\n" +
+//	"|_.__/  \\__,_||___/|_| \\___|";
+
 	@Rule
 	public final TestResources resources = new TestResources();
 
 	public final TestProperties properties = new TestProperties();
 
-	
 	public final MavenRuntime maven;
 
 	public FigletizeIntegrationTest(MavenRuntimeBuilder builder) throws Exception {
 //		builder.withCliOptions("-B", "-U");
 		builder.withCliOptions("-U");
+		
 		this.maven = builder.build();
 
 	  }
@@ -35,13 +42,13 @@ public class FigletizeIntegrationTest {
 	@Test
 	public void test() throws Exception {
 		File basedir = resources.getBasedir("basic");
-		
+		System.out.println("Expected banner: \n" + expectedBanner);
 		maven.forProject(basedir)
-			.withCliOption("-Dproperty=value")
+//			.withCliOption("-Dproperty=value")
 //			.withCliOption("-X")
 			.execute("package")
-			.assertErrorFreeLog();
-//			.assertLogText("some build message");
+			.assertErrorFreeLog()
+			.assertLogText(expectedBanner);
 	}
 
 }
