@@ -38,6 +38,8 @@
 		<mojo.java.target>1.8</mojo.java.target>
 		
 		<pyfiglet.version>0.7.5</pyfiglet.version>
+		<figlet-js.version>1.1.1</figlet-js.version>
+		
 	</properties>
 
 	<licenses>
@@ -116,12 +118,16 @@
 									src="https://jitpack.io/com/github/metrizzle/figlet-fonts/0.0.1/figlet-fonts-0.0.1.jar"
 									dest="target/figlet-fonts-0.0.1.jar" verbose="true"
 									usetimestamp="true" />
-								<unzip src="target/figlet-fonts-0.0.1.jar" dest="target/generated-resources/figlet-fonts/"/>
+								<unzip src="target/figlet-fonts-0.0.1.jar" dest="target/figlet-fonts-0.0.1"/>
 
 								<get src="https://github.com/pwaller/pyfiglet/archive/v${pyfiglet.version}.zip" 
 									dest="target/pyfiglet-${pyfiglet.version}.zip" verbose="true" usetimestamp="true" />
 								<unzip src="target/pyfiglet-${pyfiglet.version}.zip" dest="target/"/>
 
+								<get src="https://registry.npmjs.org/figlet/-/figlet-${figlet-js.version}.tgz" 
+									dest="target/figlet-js-${figlet-js.version}.tgz" verbose="true" usetimestamp="true" />
+    							<untar src="target/figlet-js-${figlet-js.version}.tgz" dest="target/figlet-js-${figlet-js.version}" compression="gzip"/>									
+<!-- 								<unzip src="" dest="target/"/> -->
 								<!-- https://github.com/cmatsuoka/figlet/releases/tag/2.2.5 -->
 								<!-- <ftp action="get" server="ftp.figlet.org" remotedir="pub/figlet/fonts/" 
 									userid="anonymous" password="anonymous"> <fileset dir="${project.build.directory}/classes/META-INF/figfonts"> 
@@ -153,6 +159,37 @@
 				<version>1.10</version>
 				<executions>
 					<execution>
+						<id>add-resource</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>add-resource</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>target/figlet-fonts-0.0.1</directory>
+									<targetPath>figlet-fonts</targetPath>									
+								</resource>
+								<resource>
+									<directory>target/figlet-js-${figlet-js.version}</directory>
+									<targetPath>figlet-js</targetPath>									
+								</resource>								
+								<resource>
+									<directory>target/pyfiglet-${pyfiglet.version}/pyfiglet</directory>
+									<targetPath>pyfiglet</targetPath>									
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.10</version>
+				<executions>
+					<execution>
 						<id>add-source</id>
 						<phase>generate-sources</phase>
 						<goals>
@@ -166,38 +203,7 @@
 					</execution>
 				</executions>
 			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.10</version>
-				<executions>
-					<execution>
-						<id>add-resource</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>add-resource</goal>
-						</goals>
-						<configuration>
-<!-- 							<resource> -->
-<!-- 								<directory>target/generated-resources/figlet-fonts</directory> -->
-<!-- 								<targetPath>figlet-fonts</targetPath> -->
-<!-- 							</resource> -->
-<!-- 								<excludes> -->
-<!-- 									<exclude>**/junk/**</exclude> -->
-<!-- 								</excludes> -->
-
-							<resources>
-								<resource>
-									<directory>target/pyfiglet-${pyfiglet.version}/pyfiglet</directory>
-									<targetPath>pyfiglet</targetPath>
-<!-- 									<resource></resource> -->
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			
 		</plugins>
 
 		<pluginManagement>
