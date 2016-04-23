@@ -171,7 +171,7 @@
 									<targetPath>figlet-fonts</targetPath>									
 								</resource>
 								<resource>
-									<directory>target/figlet-js-${figlet-js.version}</directory>
+									<directory>target/figlet-js-${figlet-js.version}/package</directory>
 									<targetPath>figlet-js</targetPath>									
 								</resource>								
 								<resource>

@@ -57,7 +57,7 @@ public class PyFigletTests {
 	}
 
 
-	private void printText(String font, String text) {
+	public void printText(String font, String text) {
 		// Create an instance of the PythonInterpreter
         PythonInterpreter interp = new PythonInterpreter();
 
