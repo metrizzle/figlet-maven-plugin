@@ -11,6 +11,9 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 
 import com.github.lalyos.jfiglet.FigletFont;
 
@@ -20,12 +23,9 @@ public class FigletizeMojo extends AbstractMojo {
 	
 	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
-    /**
-     * Get the executed project from the forked lifecycle.
-     */
     @Parameter( property = "executedProject" )
-    private MavenProject executedProject;
-
+    private MavenProject executedProject;	
+	
     @Parameter( property = "text", defaultValue="${project.artifactId}" )
     private String text;
 	
@@ -45,8 +45,15 @@ public class FigletizeMojo extends AbstractMojo {
 			text = "MAVEN";
 		}
 		
-		String asciiArt = FigletFont.convertOneLine(text);
-		logger.info("\n" + asciiArt);
+		ClassLoader cl = this.getClass().getClassLoader();
+		ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(cl);
+		Resource[] resources = resolver.getResources("classpath*:/*.flf");
+		for (Resource resource: resources){
+		    logger.info(resource.getFilename());
+		    String asciiArt = FigletFont.convertOneLine(resource.getInputStream(), text);
+		    logger.info("\n" + asciiArt);
+		}		
+		
 	}
 
 }
