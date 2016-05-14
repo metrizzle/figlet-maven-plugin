@@ -1,12 +1,45 @@
 # jfiglet-maven-plugin
 Decorate your builds with [figlet](http://www.figlet.org/) ascii banners like
+
+Generates fonts and banners on the jvm within a maven build based on:
+- [jfiglet](https://lalyos.github.io/jfiglet/)
+- [pyfiglet](https://link)
+- [figjet-js](https://linkl)
+
+```
+<dependency>
+	<groupId>TODO</groupId>
+	<artifactId>TODO</artifactId>
+	<version>0.0.7</version>
+</dependency>
+```
+
 ```
   _________ _______________          ______      _____
   ______  /____  ____/___(_)_______ ____  /_____ __  /_
   ___ _  / ___  /_    __  / __  __ `/__  / _  _ \_  __/
   / /_/ /   _  __/    _  /  _  /_/ / _  /  /  __// /_  
   \____/    /_/       /_/   _\__, /  /_/   \___/ \__/  
-  jflight-maven-plugin
+  jflight-maven-plugin      \____/
+```
+
+```
+                        _|_|  _|            _|              _|
+_|_|_|    _|    _|    _|            _|_|_|  _|    _|_|    _|_|_|_|
+_|    _|  _|    _|  _|_|_|_|  _|  _|    _|  _|  _|_|_|_|    _|
+_|    _|  _|    _|    _|      _|  _|    _|  _|  _|          _|
+_|_|_|      _|_|_|    _|      _|    _|_|_|  _|    _|_|_|      _|_|
+_|              _|                      _|
+_|          _|_|                    _|_|
+```
+
+```
+___________.___  ________.__          __          __        
+\_   _____/|   |/  _____/|  |   _____/  |_       |__| ______
+ |    __)  |   /   \  ___|  | _/ __ \   __\      |  |/  ___/
+ |     \   |   \    \_\  \  |_\  ___/|  |        |  |\___ \
+ \___  /   |___|\______  /____/\___  >__| /\ /\__|  /____  >
+     \/                \/          \/     \/ \______|    \/
 ```
 
 
@@ -20,7 +53,7 @@ Based on the [jfiglet](https://lalyos.github.io/jfiglet/) java implementation av
 ```
 
 ## Usage
-The figletize goal allows generating ascii banner for your build. 
+The figletize goal allows generating ascii banner for your build.
 ```
 <plugin>
     <groupId>com.github.maven.plugins</groupId>
@@ -38,7 +71,7 @@ The figletize goal allows generating ascii banner for your build.
 
 ## Testing
 The plugin utilizes [takari.io](http://takari.io/) Maven Plugin Testing support
-See [takari-plugin-testing-project](https://github.com/takari/takari-plugin-testing-project/blob/master/testproperties.md) pages for details. 
+See [takari-plugin-testing-project](https://github.com/takari/takari-plugin-testing-project/blob/master/testproperties.md) pages for details.
 
 ## Figlet Links
 - [FigFont Library](https://github.com/cmatsuoka/figlet-fonts) from github
@@ -52,7 +85,7 @@ See [takari-plugin-testing-project](https://github.com/takari/takari-plugin-test
 - https://docs.python.org/2/tutorial/modules.html#packages
 
 
-- http://www-personal.umich.edu/~knassen/figlet.html 
+- http://www-personal.umich.edu/~knassen/figlet.html
 - http://artii.herokuapp.com/
 - http://www.jave.de/eclipse/figlet/index.html its not just FIGlet its  much more, includes swing editor and so ...
 - http://www.rigaut.com/benoit/CERN/FigletJava/ it contains a single class implementation, so i choose this one.
