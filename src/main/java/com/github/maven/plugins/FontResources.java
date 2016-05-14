@@ -8,9 +8,14 @@ import java.net.URL;
 
 import org.apache.commons.io.IOUtils;
 
-public class JyPkgResourceStub {
+/**
+ * this called from the jython interpreter see __init__.py
+ */
+public class FontResources {
 	
-	private static final ClassLoader CLASS_LOADER = JyPkgResourceStub.class.getClassLoader();
+	private static final ClassLoader CLASS_LOADER = FontResources.class.getClassLoader();
+	
+//	FontResources resources = new FontResources();
 
 	public static Object resourceExists(String package_or_requirement, String resource_name) {
 		String path = relativePath(package_or_requirement, resource_name);
@@ -18,9 +23,6 @@ public class JyPkgResourceStub {
 		return resource;
 	}
 
-	private static String relativePath(String package_or_requirement, String resource_name) {
-		return package_or_requirement.replace(".", File.separator) + File.separator + resource_name;
-	}
 
 	public static String resolveResource(String package_or_requirement, String resource_name) throws IOException {
 		InputStream in = CLASS_LOADER.getResourceAsStream(relativePath(package_or_requirement, resource_name));
@@ -30,4 +32,15 @@ public class JyPkgResourceStub {
 		return theString;
 	}
 
+	private static String relativePath(String package_or_requirement, String resource_name) {
+		
+//		if(resource_name.startsWith("/")) {
+//			return resource_name; 
+//		}
+//		else {
+			return package_or_requirement.replace(".", File.separator) 
+				+ File.separator + resource_name;
+//		}
+		
+	}
 }

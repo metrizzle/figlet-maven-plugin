@@ -10,7 +10,7 @@ import org.python.core.PyInteger;
 import org.python.core.PyObject;
 import org.python.util.PythonInterpreter;
 
-public class ScriptEngineTests {
+public class ScriptEngineTest {
 
     /**
     * @param args the command line arguments
