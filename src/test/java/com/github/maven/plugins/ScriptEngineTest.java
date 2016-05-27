@@ -1,5 +1,8 @@
 package com.github.maven.plugins;
+
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
@@ -12,49 +15,45 @@ import org.python.util.PythonInterpreter;
 
 public class ScriptEngineTest {
 
-    /**
-    * @param args the command line arguments
-    */
-//	@Test
-    public static void main(String[] args) throws PyException {
-
-        // Create an instance of the PythonInterpreter
-        PythonInterpreter interp = new PythonInterpreter();
-
-        // The exec() method executes strings of code
-        interp.exec("import sys");
-        interp.exec("print sys");
-
-        // Set variable values within the PythonInterpreter instance
-        interp.set("a", new PyInteger(42));
-        interp.exec("print a");
-        interp.exec("x = 2+2");
-
-        // Obtain the value of an object from the PythonInterpreter and store it
-        // into a PyObject.
-        PyObject x = interp.get("x");
-        System.out.println("x: " + x);
-    }
+	ScriptEngineManager mgr = new ScriptEngineManager();	
 
 	@Test
-	public void listEngines(){
-	    ScriptEngineManager mgr = new ScriptEngineManager();
-	    List<ScriptEngineFactory> factories =
-	        mgr.getEngineFactories();
-	    for (ScriptEngineFactory factory: factories) {
-	      System.out.println("ScriptEngineFactory Info");
-	      String engName = factory.getEngineName();
-	      String engVersion = factory.getEngineVersion();
-	      String langName = factory.getLanguageName();
-	      String langVersion = factory.getLanguageVersion();
-	      System.out.printf("\tScript Engine: %s (%s)\n",
-	          engName, engVersion);
-	      List<String> engNames = factory.getNames();
-	      for(String name: engNames) {
-	        System.out.printf("\tEngine Alias: %s\n", name);
-	      }
-	      System.out.printf("\tLanguage: %s (%s)\n",
-	          langName, langVersion);
-	    }
-	  }	
+	public void listEngines() {
+		System.out.println(
+				ScriptEngineInfo.readInfos(mgr).stream().map(ScriptEngineInfo::toString).collect(Collectors.joining("\n")));
+	}
+
+	static class ScriptEngineInfo {
+		
+		String engName;
+		String engVersion;
+		String langName;
+		String langVersion;
+		List<String> engNames;
+		
+		public static final List<ScriptEngineInfo> readInfos(ScriptEngineManager mgr) {
+			List<ScriptEngineFactory> factories = mgr.getEngineFactories();
+			List<ScriptEngineInfo> result = new LinkedList<>();
+			for (ScriptEngineFactory factory : factories) {
+				ScriptEngineInfo info = new ScriptEngineInfo();
+				info.engName = factory.getEngineName();
+				info.engVersion = factory.getEngineVersion();
+				info.langName = factory.getLanguageName();
+				info.langVersion = factory.getLanguageVersion();
+				info.engNames = factory.getNames();
+				
+				result.add(info);
+			}
+			return result;
+		}		
+		
+		@Override
+		public String toString() {
+			return String.format("Script Engine: %s (%s)\n"
+					+ "\tEngine Languages: %s\n"
+					+ "\tEngine Alias: %s\n", engName, engVersion, langName, engNames);
+		}
+
+	}
+
 }

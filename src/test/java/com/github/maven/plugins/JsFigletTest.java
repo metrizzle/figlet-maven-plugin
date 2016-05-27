@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 public class JsFigletTest {
 
     @DataPoints("text") 
-    public static String[] messages = new String[] { "figletizzr 2000", "swa", "figlet-js" };
+    public static String[] messages = new String[] { "hack hack hustle", "figletizzr 2000", "swa", "figlet-js" };
 
     @DataPoints("fonts")
     public static String[] fonts = new String[] { "Ghost", "Banner", "Banner3-D",  "Spliff", "Spliff", "Script"};

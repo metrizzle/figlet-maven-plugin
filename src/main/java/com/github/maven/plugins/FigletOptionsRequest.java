@@ -3,9 +3,10 @@ package com.github.maven.plugins;
 import java.io.OutputStream;
 
 public class FigletOptionsRequest extends FigletRequest {
+	Driver<FigletOptionsRequest> driver;
+
 	String font;
 	String text = "building it>>";
-	Driver<?> driver;
 	
 	OutputStream out = System.out;
 
@@ -29,7 +30,7 @@ public class FigletOptionsRequest extends FigletRequest {
 		return this;
 	}
 	
-	public FigletOptionsRequest driver(Driver<?> fig) {
+	public FigletOptionsRequest driver(Driver<FigletOptionsRequest> fig) {
 		this.driver = fig;
 		return this;
 	}

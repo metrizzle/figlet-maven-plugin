@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.maven.plugins.jfmp-it</groupId>
-	<artifactId>basic</artifactId>
+	<artifactId>basic-figletjs</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
@@ -19,12 +19,19 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<!-- <scm> -->
+	<!-- <connection>svn:asdas:asdsasad</connection> -->
+	<!-- </scm> -->
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>com.github.maven.plugins</groupId>
 				<artifactId>jfiglet-maven-plugin</artifactId>
 				<version>${it-plugin.version}</version>
+				<configuration>
+					<driver>figletjs</driver>
+				</configuration>
 				<executions>
 					<execution>
 						<phase>validate</phase>
@@ -37,5 +44,14 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 </project>

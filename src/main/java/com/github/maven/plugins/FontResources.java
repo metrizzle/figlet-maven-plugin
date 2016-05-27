@@ -9,7 +9,8 @@ import java.net.URL;
 import org.apache.commons.io.IOUtils;
 
 /**
- * this called from the jython interpreter see __init__.py
+ * functions to read relative to drivers resource path
+ * this also called from the jython interpreter see __init__.py for bindings
  */
 public class FontResources {
 	

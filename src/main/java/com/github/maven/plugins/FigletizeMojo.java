@@ -1,5 +1,7 @@
 package com.github.maven.plugins;
 
+import java.io.OutputStream;
+
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -8,50 +10,51 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.core.io.support.ResourcePatternResolver;
 
-import com.github.lalyos.jfiglet.FigletFont;
+import com.github.maven.plugins.Driver.Types;
 
 //@Execute(goal="figletize", phase=LifecyclePhase.VALIDATE)
-@Mojo(name = "figletize", requiresProject=true, threadSafe = true, defaultPhase = LifecyclePhase.VALIDATE, instantiationStrategy = InstantiationStrategy.SINGLETON)
+@Mojo(name = "figletize", requiresProject=true, threadSafe = true, 
+defaultPhase = LifecyclePhase.VALIDATE, instantiationStrategy = InstantiationStrategy.SINGLETON)
 public class FigletizeMojo extends AbstractMojo {
 	
-	protected final Logger logger = LoggerFactory.getLogger(getClass());
+//	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Parameter( property = "executedProject" )
+    @Parameter( property = "executedProject", readonly=true )
     private MavenProject executedProject;	
 	
-    @Parameter( property = "text", defaultValue="${project.artifactId}" )
+    @Parameter( property = "text", defaultValue="${project.artifactId}", required=true)
     private String text;
 	
+    @Parameter(property = "driver", defaultValue="jfiglet", required=true)
+    private String driver;
+
+    @Parameter( property = "font", defaultValue="standard")
+	private String font;
+    
 	@Override
 	public final void execute() throws MojoExecutionException, MojoFailureException {
 		 try {
 			executeInternal();
 		} catch (Exception e) {
-			throw new MojoExecutionException("Unexpected Exception while figletizing: " + e.getMessage(), e);
+			getLog().error("Unexpected Exception while figletizzzzzzzzzzzing: " + e.getMessage(), e);
+			throw new MojoExecutionException("Unexpected Exception while figletizzzzzzzzzzzing: " + e.getMessage(), e);
 		}
 
 	}
 
 	protected void executeInternal() throws Exception {
 		
-		if(text == null) {
-			text = "MAVEN";
-		}
+		Types type = Driver.Types.valueOf(driver);
 		
-		ClassLoader cl = this.getClass().getClassLoader();
-		ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(cl);
-		Resource[] resources = resolver.getResources("classpath*:/*.flf");
-		for (Resource resource: resources){
-		    logger.info(resource.getFilename());
-		    String asciiArt = FigletFont.convertOneLine(resource.getInputStream(), text);
-		    logger.info("\n" + asciiArt);
-		}		
+		OutputStream out = System.out;
+		
+		Figletizzr.print(Figletizzr
+				.byType(type)
+				.text(text)
+				.font(font)
+				.out(out)
+			);
 		
 	}
 

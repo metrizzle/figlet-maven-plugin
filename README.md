@@ -1,16 +1,16 @@
 # jfiglet-maven-plugin
 Decorate your builds with [figlet](http://www.figlet.org/) ascii banners like
 
-Generates fonts and banners on the jvm within a maven build based on:
+Generates banners on the jvm with help of several libs
 - [jfiglet](https://lalyos.github.io/jfiglet/)
 - [pyfiglet](https://link)
 - [figjet-js](https://linkl)
 
 ```
 <dependency>
-	<groupId>TODO</groupId>
-	<artifactId>TODO</artifactId>
-	<version>0.0.7</version>
+	<groupId>${project.groupId}</groupId>
+	<artifactId>${project.artifactId}</artifactId>
+	<version>${project.version}</version>
 </dependency>
 ```
 
@@ -42,32 +42,54 @@ ___________.___  ________.__          __          __
      \/                \/          \/     \/ \______|    \/
 ```
 
-
-Based on the [jfiglet](https://lalyos.github.io/jfiglet/) java implementation available from central
-```
-<dependency>
-	<groupId>com.github.lalyos</groupId>
-	<artifactId>jfiglet</artifactId>
-	<version>0.0.7</version>
-</dependency>
-```
-
 ## Usage
-The figletize goal allows generating ascii banner for your build.
+
+TBD Commandline example
+
+The ˚figletize˚ goal allows generating ascii banner from specified 
+text parameter.
 ```
 <plugin>
     <groupId>com.github.maven.plugins</groupId>
     <artifactId>jfiglet-maven-plugin</artifactId>
-    <version>${it-plugin.version}</version>
     <configuration>
-        <text>jfiglet-maven-plugin</text>
+    	<driver>jfiglet</driver>
+        <text>jfiglet</text>
         <font>slanr</font>
-        <!--<font>classpath:slant.flf</font>-->
+        <!--
+        <font>classpath:slant.flf</font>
         <splash>true</splash>
         <outputFileName>banner.txt</outputFileName>
+        -->
     </configuration>
 </plugin>
 ```
+
+## Figlet Libraries and fonts
+The plugin is tested and packaged with the mentioned `Driver` libraries.
+
+The integration of pyfiglet and figlet-js are based on
+the Java ScriptEngine abstraction.
+jython is utilized to run the python code from pyfiglet
+nashorn is used to execute the javascript code.
+ 
+The driver runtime exposes an internal java interface 
+to control and postprocess the output.
+ 
+The font files packaged with the driver libraries
+are made available exclusive when resolving
+resource fonts. 
+
+
+## TODO
+
+* Gaol and example standalone
+* Goal for testing and listing
+* Enable driver specific options
+* Support and tests for ˚<outputFileName>banner.txt</outputFileName>˚
+* Resolve arbitary http fonts
+* Resolve arbitary classpath fonts
+
 
 ## Testing
 The plugin utilizes [takari.io](http://takari.io/) Maven Plugin Testing support
