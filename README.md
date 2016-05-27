@@ -1,18 +1,3 @@
-# jfiglet-maven-plugin
-Decorate your builds with [figlet](http://www.figlet.org/) ascii banners like
-
-Generates banners on the jvm with help of several libs
-- [jfiglet](https://lalyos.github.io/jfiglet/)
-- [pyfiglet](https://link)
-- [figjet-js](https://linkl)
-
-```
-<dependency>
-	<groupId>${project.groupId}</groupId>
-	<artifactId>${project.artifactId}</artifactId>
-	<version>${project.version}</version>
-</dependency>
-```
 
 ```
   _________ _______________          ______      _____
@@ -21,6 +6,23 @@ Generates banners on the jvm with help of several libs
   / /_/ /   _  __/    _  /  _  /_/ / _  /  /  __// /_  
   \____/    /_/       /_/   _\__, /  /_/   \___/ \__/  
   jflight-maven-plugin      \____/
+```
+[![Build Status](https://api.travis-ci.org/metrizzle/jfiglet-maven-plugin.svg)](https://api.travis-ci.org/metrizzle/jfiglet-maven-plugin)
+
+# jfiglet-maven-plugin
+Decorate your builds with [figlet](http://www.figlet.org/) ascii banners like
+
+Generates banners on the jvm with help of several libs
+- [jfiglet](https://lalyos.github.io/jfiglet/)
+- [pyfiglet](https://github.com/pwaller/pyfiglet)
+- [figjet-js](https://github.com/patorjk/figlet.js)
+
+```
+<dependency>
+	<groupId>${project.groupId}</groupId>
+	<artifactId>${project.artifactId}</artifactId>
+	<version>${project.version}</version>
+</dependency>
 ```
 
 ```
