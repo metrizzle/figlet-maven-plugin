@@ -87,14 +87,15 @@ resource fonts.
 
 ## TODO
 
-* Support and tests for ˚<outputFileName>banner.txt</outputFileName>˚
+* Support and tests outputFileName option ˚<outputFileName>banner.txt</outputFileName>˚
 * Goal and tests standalone execution (preview printing from cmdline)
-* Goal for printing listing packaged fonts and samples
+* Goal for printing all packaged fonts figlist
 * Enable driver specific options kerning, smushing
 * Goal for font details
 * Resolve arbitary http fonts files
 * Resolve arbitary classpath fonts files
-* 
+* Toilet support
+* train a neural net on ascii texts - Wait wooat
 
 ## Testing
 The plugin utilizes [takari.io](http://takari.io/) Maven Plugin Testing support
