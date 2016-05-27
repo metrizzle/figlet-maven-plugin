@@ -1,15 +1,7 @@
 
-```
-  _________ _______________          ______      _____
-  ______  /____  ____/___(_)_______ ____  /_____ __  /_
-  ___ _  / ___  /_    __  / __  __ `/__  / _  _ \_  __/
-  / /_/ /   _  __/    _  /  _  /_/ / _  /  /  __// /_  
-  \____/    /_/       /_/   _\__, /  /_/   \___/ \__/  
-  jflight-maven-plugin      \____/
-```
+# jfiglet-maven-plugin
 [![Build Status](https://api.travis-ci.org/metrizzle/jfiglet-maven-plugin.svg)](https://api.travis-ci.org/metrizzle/jfiglet-maven-plugin)
 
-# jfiglet-maven-plugin
 Decorate your builds with [figlet](http://www.figlet.org/) ascii banners like
 
 Generates banners on the jvm with help of several libs
@@ -23,6 +15,16 @@ Generates banners on the jvm with help of several libs
 	<artifactId>${project.artifactId}</artifactId>
 	<version>${project.version}</version>
 </dependency>
+```
+
+
+```
+  _________ _______________          ______      _____
+  ______  /____  ____/___(_)_______ ____  /_____ __  /_
+  ___ _  / ___  /_    __  / __  __ `/__  / _  _ \_  __/
+  / /_/ /   _  __/    _  /  _  /_/ / _  /  /  __// /_  
+  \____/    /_/       /_/   _\__, /  /_/   \___/ \__/  
+  jflight-maven-plugin      \____/
 ```
 
 ```
