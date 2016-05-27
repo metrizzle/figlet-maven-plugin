@@ -19,7 +19,6 @@ public class JFigletTest {
     public static String[] fonts = new String[] { "block", "bubble",  "lean", "big"};
 
 	JFigletDriver figlet = new JFigletDriver();
-
 	
 	@Theory
 	public void renderAFew(@FromDataPoints("text") String message,

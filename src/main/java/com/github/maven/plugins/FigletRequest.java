@@ -1,6 +1,6 @@
 package com.github.maven.plugins;
 
-import org.apache.maven.shared.utils.StringUtils;
+import org.codehaus.plexus.util.StringUtils;
 
 public class FigletRequest {
 	

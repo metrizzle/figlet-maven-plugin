@@ -17,7 +17,6 @@ Generates banners on the jvm with help of several libs
 </dependency>
 ```
 
-
 ```
   _________ _______________          ______      _____
   ______  /____  ____/___(_)_______ ____  /_____ __  /_
@@ -87,14 +86,16 @@ resource fonts.
 
 ## TODO
 
-* Support and tests for ˚<outputFileName>banner.txt</outputFileName>˚
-* Goal and tests standalone execution (preview printing from cmdline)
-* Goal for printing listing packaged fonts and samples
-* Enable driver specific options kerning, smushing
+* -Support and tests bannerFileName option ˚<bannerFileName>banner.txt</bannerFileName>˚-
+* -Goal and tests standalone execution (preview printing from cmdline)-
+* Enable driver specific options kerning, smushing via cmd first
+* Goal for printing all packaged fonts figlist
 * Goal for font details
-* Resolve arbitary http fonts files
-* Resolve arbitary classpath fonts files
-* 
+* Resolve arbitary http fonts files into driver environment
+* Resolve arbitary classpath fonts files driver independent
+* Support for color schemes -> Toilet http://caca.zoy.org/wiki/toilet
+* Add pre and postprocessing hooks -> additional lines etc. 
+* train a neural net on ascii texts - Wait wooat
 
 ## Testing
 The plugin utilizes [takari.io](http://takari.io/) Maven Plugin Testing support

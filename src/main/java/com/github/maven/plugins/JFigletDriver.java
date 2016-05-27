@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.maven.shared.utils.StringUtils;
+import org.codehaus.plexus.util.StringUtils;
 
 import com.github.lalyos.jfiglet.FigletFont;
 
@@ -21,7 +21,7 @@ public class JFigletDriver extends AbstractDriver<FigletOptionsRequest> {
 			req.font = "/defaults/ours/" + req.font;
 		}
 		
-		if(!StringUtils.endsWithIgnoreCase(req.font, ".flf")) {
+		if(!StringUtils.contains(req.font, ".flf")) {
 			req.font += ".flf";
 		}
 		

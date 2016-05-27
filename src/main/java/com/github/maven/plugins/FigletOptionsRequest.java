@@ -3,6 +3,7 @@ package com.github.maven.plugins;
 import java.io.OutputStream;
 
 public class FigletOptionsRequest extends FigletRequest {
+	//TODO consider
 	Driver<FigletOptionsRequest> driver;
 
 	String font;

@@ -11,11 +11,6 @@ public class JFigletFontTest {
 
 	JFigletDriver fig = new JFigletDriver();
 
-//	@Test
-//	public void noargs() throws Exception {
-//		print(fig, null);
-//	}
-	
 	@Test
 	public void printFunctions() throws Exception {
 		print(fig, "test figlet");

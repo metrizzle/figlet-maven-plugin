@@ -8,10 +8,7 @@ import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 
 import org.junit.Test;
-import org.python.core.PyException;
-import org.python.core.PyInteger;
-import org.python.core.PyObject;
-import org.python.util.PythonInterpreter;
+
 
 public class ScriptEngineTest {
 
@@ -20,7 +17,10 @@ public class ScriptEngineTest {
 	@Test
 	public void listEngines() {
 		System.out.println(
-				ScriptEngineInfo.readInfos(mgr).stream().map(ScriptEngineInfo::toString).collect(Collectors.joining("\n")));
+				ScriptEngineInfo.readInfos(mgr).stream());
+//				.
+				
+				//.map(ScriptEngineInfo::toString).collect(Collectors.joining("\n")));
 	}
 
 	static class ScriptEngineInfo {
@@ -33,7 +33,7 @@ public class ScriptEngineTest {
 		
 		public static final List<ScriptEngineInfo> readInfos(ScriptEngineManager mgr) {
 			List<ScriptEngineFactory> factories = mgr.getEngineFactories();
-			List<ScriptEngineInfo> result = new LinkedList<>();
+			List<ScriptEngineInfo> result = new LinkedList<ScriptEngineInfo>();
 			for (ScriptEngineFactory factory : factories) {
 				ScriptEngineInfo info = new ScriptEngineInfo();
 				info.engName = factory.getEngineName();

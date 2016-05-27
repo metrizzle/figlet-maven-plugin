@@ -4,6 +4,9 @@ import org.apache.commons.io.IOUtils;
 import org.python.core.PyModule;
 import org.python.util.PythonInterpreter;
 
+/**
+ * implementation delegating to the embend python lib for rendering. 
+ */
 public class PyFigletDriver extends AbstractDriver<FigletOptionsRequest> {
 
 	@Override
@@ -29,6 +32,7 @@ public class PyFigletDriver extends AbstractDriver<FigletOptionsRequest> {
 			}
 			
 			interp.set("res", "");
+			//TODO bind string properly script injects..
 			interp.exec("res = f.renderText('" + req.text + "')");
 			
 			IOUtils.write(interp.get("res").asString(), req.out);

@@ -8,7 +8,7 @@ import javax.script.Bindings;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
-import org.apache.maven.shared.utils.StringUtils;
+import org.codehaus.plexus.util.StringUtils;
 
 public class JsFigletDriver extends AbstractDriver<FigletOptionsRequest>{
 

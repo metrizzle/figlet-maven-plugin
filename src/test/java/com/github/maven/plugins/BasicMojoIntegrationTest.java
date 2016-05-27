@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.util.Arrays;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -21,7 +20,7 @@ import io.takari.maven.testing.executor.MavenVersions;
 import io.takari.maven.testing.executor.junit.MavenJUnitTestRunner;
 
 @RunWith(MavenJUnitTestRunner.class)
-@MavenVersions({"3.3.9", "3.2.5"})//"{,"3.2.1", "3.0" }"
+@MavenVersions({"3.3.9", "3.2.5"})//"{"3.1.1","3.2.1", "3.0" }"
 public class BasicMojoIntegrationTest {
 	
 	private static final Log log  = LogFactory.getLog(BasicMojoIntegrationTest.class);
@@ -34,12 +33,9 @@ public class BasicMojoIntegrationTest {
 	public final MavenRuntime maven;
 
 	public BasicMojoIntegrationTest(MavenRuntimeBuilder builder) throws Exception {
-//		builder.withCliOptions("-B", "-U");
-		builder.withCliOptions("-B", "-U");
-		
+		builder.withCliOptions("-B", "-U"); //"-e", "-X",
 		this.maven = builder.build();
-
-	  }
+	}
 
 	//contains java escape symbols; looks a bit weird
 	String[] expectedBanner= {
@@ -58,9 +54,15 @@ public class BasicMojoIntegrationTest {
 
 	private void assertSuccesfulBuildWithSplash(String[] expectedBanner, String project) throws IOException, Exception {
 		File basedir = resources.getBasedir(project);
-		System.out.println("Expected banner: \n" + Arrays.toString(expectedBanner));
-		MavenExecutionResult res = maven.forProject(basedir)
-			.execute("package");
+		
+		log.debug("Expected banner: \n");
+
+		for(int i = 0; i<expectedBanner.length; i++) {
+			log.debug(expectedBanner[i] + "\n");
+//			System.out.println("Expected banner: \n" + Arrays.toString(expectedBanner));
+		}
+		
+		MavenExecutionResult res = maven.forProject(basedir).execute("package");
 		 
 		printStdout(new File(basedir, "log.txt"));
 		
