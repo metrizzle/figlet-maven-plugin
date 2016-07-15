@@ -93,7 +93,7 @@ resource fonts.
 * Goal for font details
 * Resolve arbitary http fonts files into driver environment
 * Resolve arbitary classpath fonts files driver independent
-* Support for color schemes -> Toilet http://caca.zoy.org/wiki/toilet
+* Toilet support for color schemes -> http://caca.zoy.org/wiki/toilet
 * Add pre and postprocessing hooks -> additional lines etc. 
 * train a neural net on ascii texts - Wait wooat
 
