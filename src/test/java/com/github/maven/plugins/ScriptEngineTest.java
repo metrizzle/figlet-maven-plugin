@@ -2,7 +2,6 @@ package com.github.maven.plugins;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
@@ -17,7 +16,7 @@ public class ScriptEngineTest {
 	@Test
 	public void listEngines() {
 		System.out.println(
-				ScriptEngineInfo.readInfos(mgr).stream());
+				ScriptEngineInfo.readInfos(mgr));
 //				.
 				
 				//.map(ScriptEngineInfo::toString).collect(Collectors.joining("\n")));

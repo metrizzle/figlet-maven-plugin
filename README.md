@@ -49,8 +49,7 @@ ___________.___  ________.__          __          __
 
 TBD Commandline example
 
-The ˚figletize˚ goal allows generating ascii banner from specified 
-text parameter.
+The ˚figletize˚ goal allows generating ascii banner from specified  text parameter.
 ```
 <plugin>
     <groupId>com.github.maven.plugins</groupId>
@@ -71,29 +70,24 @@ text parameter.
 ## Figlet Libraries and fonts
 The plugin is tested and packaged with the mentioned `Driver` libraries.
 
-The integration of pyfiglet and figlet-js are based on
-the Java ScriptEngine abstraction.
-jython is utilized to run the python code from pyfiglet
-nashorn is used to execute the javascript code.
+The integration of pyfiglet and figlet-js are based on the Java ScriptEngine abstraction.
+
+Jython is utilized to run the python code from pyfiglet. Nashorn is used to execute the javascript code.
  
-The driver runtime exposes an internal java interface 
-to control and postprocess the output.
+The driver runtime exposes an internal java interface to control and postprocess the output.
  
-The font files packaged with the driver libraries
-are made available exclusive when resolving
-resource fonts. 
+The font files packaged with the driver libraries are made available exclusive when resolving resource fonts. 
 
 
 ## TODO
 
 * -Support and tests bannerFileName option ˚<bannerFileName>banner.txt</bannerFileName>˚-
 * -Goal and tests standalone execution (preview printing from cmdline)-
-* Enable driver specific options kerning, smushing via cmd first
+* Enable driver specific options kerning, smushing via cmd
 * Goal for printing all packaged fonts figlist
 * Goal for font details
 * Resolve arbitary http fonts files into driver environment
-* Resolve arbitary classpath fonts files driver independent
-* Toilet support for color schemes -> http://caca.zoy.org/wiki/toilet
+* Resolve arbitary classpath fonts files driver independent * Toilet support for color schemes -> http://caca.zoy.org/wiki/toilet
 * Add pre and postprocessing hooks -> additional lines etc. 
 * train a neural net on ascii texts - Wait wooat
 
@@ -101,26 +95,41 @@ resource fonts.
 The plugin utilizes [takari.io](http://takari.io/) Maven Plugin Testing support
 See [takari-plugin-testing-project](https://github.com/takari/takari-plugin-testing-project/blob/master/testproperties.md) pages for details.
 
-## Figlet Links
+## Resources
+
+### Figlet Font
 - [FigFont Library](https://github.com/cmatsuoka/figlet-fonts) from github
 - [history of FIGlet](http://www.figlet.org/figlet_history.html)
-- [Maven Vars and Properies Oerview](https://github.com/cko/predefined_maven_properties/blob/master/README.md)
-- ftp://ftp.figlet.org/pub/figlet/fonts/contributed/
 - [FAQ](http://www-personal.umich.edu/~knassen/ians.faq.html)
-- https://books.sonatype.com/mvnref-book/reference/resource-filtering-sect-properties.html
 
-- [Jython Modules](https://docs.python.org/2/tutorial/modules.html)
-- https://docs.python.org/2/tutorial/modules.html#packages
+
+- [Figlet.org contributed font] ftp://ftp.figlet.org/pub/figlet/fonts/contributed/
 
 
 - http://www-personal.umich.edu/~knassen/figlet.html
 - http://artii.herokuapp.com/
 - http://www.jave.de/eclipse/figlet/index.html its not just FIGlet its  much more, includes swing editor and so ...
 - http://www.rigaut.com/benoit/CERN/FigletJava/ it contains a single class implementation, so i choose this one.
-- http://takari.io/book/70-testing.html Testing Maven Plugin
+
+
+### Maven
+- [Testing Maven Plugin with Takari](http://takari.io/book/70-testing.html)
+
+- [Maven vars and properties overview](https://github.com/cko/predefined_maven_properties/blob/master/README.md)
+
+- [Maven reference book filtering properties](https://books.sonatype.com/mvnref-book/reference/resource-filtering-sect-properties.html)
+
+- [Mojohaus Code Guidelines](http://www.mojohaus.org/development/guidelines.html)
+
+- [Mojohaus Releases](http://www.mojohaus.org/development/performing-a-release.html)
+
+### Python/Jython
+- [Jython Modules](https://docs.python.org/2/tutorial/modules.html)
+- [Python Packages](https://docs.python.org/2/tutorial/modules.html#packages)
+
+
 - http://www.network-science.de/ascii/
 
-- http://www.mojohaus.org/development/guidelines.html
 - https://de.wikipedia.org/wiki/FIGlet-Font
 - http://www.jave.de
-- http://www.mojohaus.org/development/performing-a-release.html
+

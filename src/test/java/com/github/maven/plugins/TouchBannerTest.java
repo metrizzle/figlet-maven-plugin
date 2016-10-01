@@ -6,11 +6,16 @@ import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import io.takari.maven.testing.TestMavenRuntime;
 import io.takari.maven.testing.TestResources;
+import io.takari.maven.testing.executor.MavenVersions;
+import io.takari.maven.testing.executor.junit.MavenJUnitTestRunner;
 
-public class TouchBannerMojoTest {
+//@RunWith(MavenJUnitTestRunner.class)
+//@MavenVersions({"3.3.9", "3.2.5"})//"{"3.1.1","3.2.1", "3.0" }"
+public class TouchBannerTest {
 	
 	@Rule
 	public final TestResources resources = new TestResources();

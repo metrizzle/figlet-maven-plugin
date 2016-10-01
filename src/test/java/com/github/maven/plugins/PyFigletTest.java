@@ -57,7 +57,7 @@ public class PyFigletTest {
 		
 //		String font ="standard";
 		
-		print(figlet, new FigletOptionsRequest().text("text").font("4max"));
+		print(figlet, new FigletOptionsRequest().text("NX3>>"));
 		
 //		print(figlet, b -> {
 //			b.font("banner.flf")

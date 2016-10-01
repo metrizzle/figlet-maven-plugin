@@ -3,11 +3,12 @@ package com.github.maven.plugins;
 import com.github.maven.plugins.Driver.Types;
 
 /**
- * static methods to output and configure figlet prints 
- * TODO
+ * Static methods to output and configure figlet prints
+ * 
  */
 public abstract class Figletizzr {
 	
+    //TODO
 	private static final Driver<FigletOptionsRequest> fallback = new JFigletDriver();
 	
 	/**

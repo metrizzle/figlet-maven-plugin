@@ -4,7 +4,7 @@ package com.github.maven.plugins;
  * really crappy strategy to the figletizing implementations.
  * @param <R>
  */
-@FunctionalInterface
+//@FunctionalInterface
 public interface Driver<R extends FigletRequest> {
 	
 	public enum Types {
