@@ -1,4 +1,4 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -9,8 +9,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-
-import com.github.maven.plugins.Driver.Types;
+import org.codehaus.mojo.figlet.Driver.Types;
 
 @Mojo( name = "touch", requiresProject = true, threadSafe = false, defaultPhase = LifecyclePhase.GENERATE_RESOURCES )
 public class TouchMojo

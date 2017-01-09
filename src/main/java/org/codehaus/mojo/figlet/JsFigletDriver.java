@@ -1,4 +1,4 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

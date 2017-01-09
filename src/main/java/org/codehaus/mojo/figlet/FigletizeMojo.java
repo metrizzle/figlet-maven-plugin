@@ -1,4 +1,4 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
 import java.io.OutputStream;
 
@@ -10,8 +10,7 @@ import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.apache.maven.project.MavenProject;
-
-import com.github.maven.plugins.Driver.Types;
+import org.codehaus.mojo.figlet.Driver.Types;
 
 //@Execute(goal="figletize", phase=LifecyclePhase.VALIDATE)
 @Mojo(name = "figletize", requiresProject=true, threadSafe = true, 

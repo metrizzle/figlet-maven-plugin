@@ -87,9 +87,11 @@ The font files packaged with the driver libraries are made available exclusive w
 * Goal for printing all packaged fonts figlist
 * Goal for font details
 * Resolve arbitary http fonts files into driver environment
-* Resolve arbitary classpath fonts files driver independent * Toilet support for color schemes -> http://caca.zoy.org/wiki/toilet
+* Resolve arbitary classpath fonts files driver independent 
+* Toilet support for color schemes -> http://caca.zoy.org/wiki/toilet
+* Create a list from font files <contributors></contributors>
 * Add pre and postprocessing hooks -> additional lines etc. 
-* train a neural net on ascii texts - Wait wooat
+* Train a neural network on ascii texts and see what it outputs - Wait wooat
 
 ## Testing
 The plugin utilizes [takari.io](http://takari.io/) Maven Plugin Testing support
@@ -101,8 +103,6 @@ See [takari-plugin-testing-project](https://github.com/takari/takari-plugin-test
 - [FigFont Library](https://github.com/cmatsuoka/figlet-fonts) from github
 - [history of FIGlet](http://www.figlet.org/figlet_history.html)
 - [FAQ](http://www-personal.umich.edu/~knassen/ians.faq.html)
-
-
 - [Figlet.org contributed font] ftp://ftp.figlet.org/pub/figlet/fonts/contributed/
 
 

@@ -1,7 +1,11 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
 
-import static com.github.maven.plugins.Figletizzr.*;
+import static org.codehaus.mojo.figlet.Figletizzr.*;
+
+import org.codehaus.mojo.figlet.FigletOptionsRequest;
+import org.codehaus.mojo.figlet.Figletizzr;
+import org.codehaus.mojo.figlet.JFigletDriver;
 import org.junit.Test;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;

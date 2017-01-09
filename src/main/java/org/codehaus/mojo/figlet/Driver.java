@@ -1,4 +1,4 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
 /**
  * really crappy strategy to the figletizing implementations.

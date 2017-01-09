@@ -1,6 +1,6 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
-import com.github.maven.plugins.Driver.Types;
+import org.codehaus.mojo.figlet.Driver.Types;
 
 /**
  * Static methods to output and configure figlet prints
@@ -68,6 +68,7 @@ public abstract class Figletizzr {
 			throw new IllegalArgumentException("Driver seems not to be available: " + e.getMessage(), e); 
 		}
 	}
+	
 	private static <RequestType extends FigletRequest> Driver<RequestType> lookupDefaultDriver(Class<RequestType> requestType) {
 	//	TODO lookup defaults
 //		List<Driver<RequestType>> available = new LinkedList<>();

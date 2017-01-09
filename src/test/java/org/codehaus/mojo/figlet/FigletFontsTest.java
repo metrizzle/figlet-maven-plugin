@@ -1,8 +1,14 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.codehaus.mojo.figlet.Driver;
+import org.codehaus.mojo.figlet.FigletOptionsRequest;
+import org.codehaus.mojo.figlet.Figletizzr;
+import org.codehaus.mojo.figlet.JFigletDriver;
+import org.codehaus.mojo.figlet.JsFigletDriver;
+import org.codehaus.mojo.figlet.PyFigletDriver;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;

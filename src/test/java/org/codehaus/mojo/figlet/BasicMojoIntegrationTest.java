@@ -1,4 +1,4 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,104 +19,110 @@ import io.takari.maven.testing.executor.MavenRuntime.MavenRuntimeBuilder;
 import io.takari.maven.testing.executor.MavenVersions;
 import io.takari.maven.testing.executor.junit.MavenJUnitTestRunner;
 
-@RunWith(MavenJUnitTestRunner.class)
-@MavenVersions({"3.3.9", "3.2.5"})//"{"3.1.1","3.2.1", "3.0" }"
-public class BasicMojoIntegrationTest {
-	
-	private static final Log log  = LogFactory.getLog(BasicMojoIntegrationTest.class);
-	
-	@Rule
-	public final TestResources resources = new TestResources();
+@RunWith( MavenJUnitTestRunner.class )
+@MavenVersions( { "3.3.9", "3.2.5" } ) // "{"3.1.1","3.2.1", "3.0" }"
+public class BasicMojoIntegrationTest
+{
 
-	public final TestProperties properties = new TestProperties();
+    private static final Log log = LogFactory.getLog( BasicMojoIntegrationTest.class );
 
-	public final MavenRuntime maven;
+    @Rule
+    public final TestResources resources = new TestResources();
 
-	public BasicMojoIntegrationTest(MavenRuntimeBuilder builder) throws Exception {
-		builder.withCliOptions("-B", "-U"); //"-e", "-X",
-		this.maven = builder.build();
-	}
+    public final TestProperties properties = new TestProperties();
 
-	//contains java escape symbols; looks a bit weird
-	String[] expectedBanner= {
-			" _                  _       ",
-			"| |__    __ _  ___ (_)  ___ ", 
-			"| '_ \\  / _` |/ __|| | / __|",
-			"| |_) || (_| |\\__ \\| || (__ ",
-			"|_.__/  \\__,_||___/|_| \\___|"
-	};		
+    public final MavenRuntime maven;
 
-	@Test
-	public void defaultsOptions() throws Exception {
-		String project = "basic";
-		assertSuccesfulBuildWithSplash(expectedBanner, project);
-	}
+    public BasicMojoIntegrationTest( MavenRuntimeBuilder builder )
+        throws Exception
+    {
+        builder.withCliOptions( "-B", "-U" ); // "-e", "-X",
+        this.maven = builder.build();
+    }
 
-	private void assertSuccesfulBuildWithSplash(String[] expectedBanner, String project) throws IOException, Exception {
-		File basedir = resources.getBasedir(project);
-		
-		log.debug("Expected banner: \n");
+    // contains java escape symbols; looks a bit weird
+    String[] expectedBanner = { " _                  _       ", "| |__    __ _  ___ (_)  ___ ",
+        "| '_ \\  / _` |/ __|| | / __|", "| |_) || (_| |\\__ \\| || (__ ", "|_.__/  \\__,_||___/|_| \\___|" };
 
-		for(int i = 0; i<expectedBanner.length; i++) {
-			log.debug(expectedBanner[i] + "\n");
-//			System.out.println("Expected banner: \n" + Arrays.toString(expectedBanner));
-		}
-		
-		MavenExecutionResult res = maven.forProject(basedir).execute("package");
-		 
-		printStdout(new File(basedir, "log.txt"));
-		
-	    for (String string : expectedBanner) {
-	    	res.assertLogText(string);
-			
-		}
-	    res.assertErrorFreeLog();
-	}
+    @Test
+    public void defaultsOptions()
+        throws Exception
+    {
+        String project = "basic";
+        assertSuccesfulBuildWithSplash( expectedBanner, project );
+    }
 
-	@Test
-	public void defaultsOptionsWithPyfiglet() throws Exception {
-		File basedir = resources.getBasedir("basic-pyfiglet");
-		String[] expectedBanner= {
-				" _                  _       ",
-				"| |__    __ _  ___ (_)  ___ ", 
-				"| '_ \\  / _` |/ __|| | / __|",
-				"| |_) || (_| |\\__ \\| || (__ ",
-				"|_.__/  \\__,_||___/|_| \\___|"
-				};		
-				
-		System.out.println("Expected banner: \n" + expectedBanner);
-		MavenExecutionResult res = maven.forProject(basedir)
-//			.withCliOption("-Dproperty=value")
-//			.withCliOption("-X")
-			.execute("package");
-		 
-		printStdout(new File(basedir, "log.txt"));
-		
-	    for (String string : expectedBanner) {
-	    	res.assertLogText(string);
-			
-		}
-	    
-	    res.assertErrorFreeLog();
-		
-	}	
-	
-	@Test
-	public void figletjsDefaultOptions() throws Exception {
-		assertSuccesfulBuildWithSplash(expectedBanner, "basic-figletjs");
-	}	
-		
-	
-	
-	private static void printStdout(File logFile) throws IOException {
-	    if (!logFile.canRead()) {
-	    	return;
-	    }
-	    
-        for (String line : Files.readAllLines(logFile.toPath(), Charset.defaultCharset())) {
-        	System.out.println(line);
-          //log.info(line);
+    private void assertSuccesfulBuildWithSplash( String[] expectedBanner, String project )
+        throws IOException, Exception
+    {
+        File basedir = resources.getBasedir( project );
+
+        log.debug( "Expected banner: \n" );
+
+        for ( int i = 0; i < expectedBanner.length; i++ )
+        {
+            log.debug( expectedBanner[i] + "\n" );
+            // System.out.println("Expected banner: \n" + Arrays.toString(expectedBanner));
         }
-	}
+
+        MavenExecutionResult res = maven.forProject( basedir ).execute( "package" );
+
+        printStdout( new File( basedir, "log.txt" ) );
+
+        for ( String string : expectedBanner )
+        {
+            res.assertLogText( string );
+
+        }
+        res.assertErrorFreeLog();
+    }
+
+    @Test
+    public void defaultsOptionsWithPyfiglet()
+        throws Exception
+    {
+        File basedir = resources.getBasedir( "basic-pyfiglet" );
+        String[] expectedBanner = { " _                  _       ", "| |__    __ _  ___ (_)  ___ ",
+            "| '_ \\  / _` |/ __|| | / __|", "| |_) || (_| |\\__ \\| || (__ ", "|_.__/  \\__,_||___/|_| \\___|" };
+
+        System.out.println( "Expected banner: \n" + expectedBanner );
+        MavenExecutionResult res = maven.forProject( basedir )
+                                        // .withCliOption("-Dproperty=value")
+                                        // .withCliOption("-X")
+                                        .execute( "package" );
+
+        printStdout( new File( basedir, "log.txt" ) );
+
+        for ( String string : expectedBanner )
+        {
+            res.assertLogText( string );
+
+        }
+
+        res.assertErrorFreeLog();
+
+    }
+
+    @Test
+    public void figletjsDefaultOptions()
+        throws Exception
+    {
+        assertSuccesfulBuildWithSplash( expectedBanner, "basic-figletjs" );
+    }
+
+    private static void printStdout( File logFile )
+        throws IOException
+    {
+        if ( !logFile.canRead() )
+        {
+            return;
+        }
+
+        for ( String line : Files.readAllLines( logFile.toPath(), Charset.defaultCharset() ) )
+        {
+            System.out.println( line );
+            // log.info(line);
+        }
+    }
 
 }

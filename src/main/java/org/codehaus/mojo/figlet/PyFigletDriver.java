@@ -1,4 +1,4 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
 import org.apache.commons.io.IOUtils;
 import org.python.core.PyModule;

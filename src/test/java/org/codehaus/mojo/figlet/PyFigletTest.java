@@ -1,7 +1,9 @@
-package com.github.maven.plugins;
+package org.codehaus.mojo.figlet;
 
-import static com.github.maven.plugins.Figletizzr.print;
+import static org.codehaus.mojo.figlet.Figletizzr.print;
 
+import org.codehaus.mojo.figlet.FigletOptionsRequest;
+import org.codehaus.mojo.figlet.PyFigletDriver;
 import org.junit.Test;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.FromDataPoints;
