@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.github.metrizzle</groupId>
+	<artifactId>figlet-fonts</artifactId>
+	<version>0.0.1</version>
+  	<packaging>jar</packaging>
+
+   <build>
+    <resources>
+      <resource>
+        <directory>${basedir}</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/*.flf</include>
+					<!--<include>**/*.flf.txt</include>-->
+        </includes>
+        <targetPath>META-INF/figlet-fonts</targetPath>
+      </resource>
+      <!--
+
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+        <excludes>
+          <exclude>**/*.xml</exclude>
+        </excludes>
+      </resource>-->
+    </resources>
+  	</build>
+</project>
